@@ -105,7 +105,7 @@ const RegularSignIn = () => {
 							/>
 							<p className='text-14 pb-auto pt-[14px]'>
 								Dont have an account ?&nbsp;
-								<Link className='text-bell-green-500' href='/auth/register'>
+								<Link className='text-bell-blue-500' href='/auth/register'>
 									Sign up here
 								</Link>
 							</p>

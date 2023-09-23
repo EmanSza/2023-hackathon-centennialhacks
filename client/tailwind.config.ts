@@ -30,6 +30,10 @@ const config: Config = {
 					300: '#0172CB',
 					400: '#F5F7FF',
 				},
+				'bell-blue': {
+					500: '#3085C3',
+					800: '#26577C',
+				},
 				'bell-green': {
 					200: '#A3E7F0',
 					500: '#1B92A2',

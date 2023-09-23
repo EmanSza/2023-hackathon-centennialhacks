@@ -164,7 +164,7 @@ const RegularSignUp = () => {
 							/>
 							<p className='text-14 pb-auto pt-[14px]'>
 								Already have an account ?&nbsp;
-								<Link className='text-bell-green-500' href='/auth/login'>
+								<Link className='text-bell-blue-500' href='/auth/login'>
 									Sign in here
 								</Link>
 							</p>
