@@ -198,6 +198,4 @@ accurate profile and replicate the users behaviour exactly?
 
 === Using AI to anonymize the data
 
-with the user data being fed into a Recurrent Neural Network (RNN) each successful interaction builds the baseline for future 
-comparison.  Since the individual inputs are not retained exfiltrating the data from the model would be like taking a password hash. 
-The only way to make it meaningful would be to brute force test a vairety of inputs to make an accurate spoof. 
+with the user data being fed into a Recurrent Neural Network (RNN) each successful interaction builds the baseline for future comparison.  Since the individual inputs are not retained exfiltrating the data from the model would be like taking a password hash. The only way to make it meaningful would be to brute force test a vairety of inputs to make an accurate spoof. 
