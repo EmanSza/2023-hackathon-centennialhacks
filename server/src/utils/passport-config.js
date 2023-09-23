@@ -1,7 +1,7 @@
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt');
-const employeeSchema = require('../models/employeeSchema')
-const consumerSchema = require('../models/consumerSchema')
+const employeeSchema = require('../models/employee')
+const consumerSchema = require('../models/consumer')
 
 
 

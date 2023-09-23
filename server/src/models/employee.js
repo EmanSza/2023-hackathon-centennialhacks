@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose")
 
-const employeeSchemaSchema = new Schema({
+const employeeSchema = new Schema({
     local: {
         username: {
             type: String,

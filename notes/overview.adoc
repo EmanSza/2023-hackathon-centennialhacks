@@ -43,4 +43,159 @@ More intrusive (client side, site specific):
 ** How fast does the user type?
 ** Do they use shift or caps lock for uppercase characters?
 * Time from load to action:
+** When a user logs in, how long does it typcially take them = Bell GeekFest Hackathon - Team Centennial Hacks
+Sept 23 - 24
+
+== Human Hueristics - Online security through user fingerprinting
+
+Everyday, users make thouands of requests across networks. Logins to vital services such as banking,
+e-commerce, and games can be a risk. Solutions such as two factor can help to mitigate some of the risks
+but no system is infallable. We propose using the power of AI to create profiles of users and their interactions 
+with these services. To ensure that the user behind the keyboard is who they claim to be we took inspiration from
+a program called "Cortex XDR" which uses AI to build a profile of processes and flag virus like behaviour. This software is
+trusted by large corporations to provide robust security in a constantly evolving landscape. Why can we not do the same for
+people?
+
+====
+
+One of the greatest issues with security is user fatigue: If a password is too long, users will write them down. If frequent 
+two factor verifactions are required checking the check box become unconscious routine.
+
+====
+
+For ethical concerns, all levels of the system are opt-in and solutions range from minimally intrusive to
+full pectrum analysis of a users behaviour on a system. When a user attempts to login to a service the system assigns 
+a confidence score. If the score is too low then additional verification or restriction of access can occur.
+
+
+Minimally inspective (full server side):
+
+* Time of login: 
+** If a user typcially logs in between 5 - 7 on the weekends at attempt to login on saturday at 3am should raise concerns
+* User-Agent String: 
+** If the user always logs in from their desktop PC, a user trying to login from an iphone would lower the confidence score
+* Location: 
+** Is the user logging in from their usual location?
+
+More intrusive (client side, site specific):
+
+* Tracking Pixels: 
+** Used by advertisers to measure site engagement the same technology could also help to build confidence scores
+* Mouse movement: 
+** Does the user typically click toward the top left of the login button... the center right? 
+** When moving the mouse how fast does the user move between points? Do they prefer straigh lines or slight curves?
+* Typing speed:
+** How fast d= Bell GeekFest Hackathon - Team Centennial Hacks
+Sept 23 - 24
+
+== Human Hueristics - Online security through user fingerprinting
+
+Everyday, users make thouands of requests across networks. Logins to vital services such as banking,
+e-commerce, and games can be a risk. Solutions such as two factor can help to mitigate some of the risks
+but no system is infallable. We propose using the power of AI to create profiles of users and their interactions 
+with these services. To ensure that the user behind the keyboard is who they claim to be we took inspiration from
+a program called "Cortex XDR" which uses AI to build a profile of processes and flag virus like behaviour. This software is
+trusted by large corporations to provide robust security in a constantly evolving landscape. Why can we not do the same for
+people?
+
+====
+
+One of the greatest issues with security is user fatigue: If a password is too long, users will write them down. If frequent 
+two factor verifactions are required checking the check box become unconscious routine.
+
+====
+
+For ethical concerns, all levels of the system are opt-in and solutions range from minimally intrusive to
+full pectrum analysis of a users behaviour on a system. When a user attempts to login to a service the system assigns 
+a confidence score. If the score is too low then additional verification or restriction of access can occur.
+
+
+Minimally inspective (full server side):
+
+* Time of login: 
+** If a user typcially logs in between 5 - 7 on the weekends at attempt to login on saturday at 3am should raise concerns
+* User-Agent String: 
+** If the user always logs in from their desktop PC, a user trying to login from an iphone would lower the confidence score
+* Location: 
+** Is the user logging in from their usual location?
+
+More intrusive (client side, site specific):
+
+* Tracking Pixels: 
+** Used by advertisers to measure site engagement the same technology could also help to build confidence scores
+* Mouse movement: 
+** Does the user typically click toward the top left of the login button... the center right? 
+** When moving the mouse how fast does the user move between points? Do they prefer straigh lines or slight curves?
+* Typing speed:
+** How fast does the user type?
+** Do they use shift or caps lock for uppercase characters?
+* Time from load to action:
 ** When a user logs in, how long does it take them 
+oes the user type?
+** Do they use shift or caps lock for uppercase characters?
+* Time from load to action:
+** When a user logs in, how long does it take them 
+ = Bell GeekFest Hackathon - Team Centennial Hacks
+Sept 23 - 24
+
+== Human Hueristics - Online security through user fingerprinting
+
+Everyday, users make thouands of requests across networks. Logins to vital services such as banking,
+e-commerce, and games can be a risk. Solutions such as two factor can help to mitigate some of the risks
+but no system is infallable. We propose using the power of AI to create profiles of users and their interactions 
+with these services. To ensure that the user behind the keyboard is who they claim to be we took inspiration from
+a program called "Cortex XDR" which uses AI to build a profile of processes and flag virus like behaviour. This software is
+trusted by large corporations to provide robust security in a constantly evolving landscape. Why can we not do the same for
+people?
+
+====
+
+One of the greatest issues with security is user fatigue: If a password is too long, users will write them down. If frequent 
+two factor verifactions are required checking the check box become unconscious routine.
+
+====
+
+For ethical concerns, all levels of the system are opt-in and solutions range from minimally intrusive to
+full pectrum analysis of a users behaviour on a system. When a user attempts to login to a service the system assigns 
+a confidence score. If the score is too low then additional verification or restriction of access can occur.
+
+
+Minimally inspective (full server side):
+
+* Time of login: 
+** If a user typcially logs in between 5 - 7 on the weekends at attempt to login on saturday at 3am should raise concerns
+* User-Agent String: 
+** If the user always logs in from their desktop PC, a user trying to login from an iphone would lower the confidence score
+* Location: 
+** Is the user logging in from their usual location?
+
+More inspective (client side, site specific):
+
+* Tracking Pixels: 
+** Used by advertisers to measure site engagement the same technology could also help to build confidence scores
+* Mouse movement: 
+** Does the user typically click toward the top left of the login button... the center right? 
+** When moving the mouse how fast does the user move between points? Do they prefer straigh lines or slight curves?
+* Typing speed:
+** How fast does the user type?
+** Do they use shift or caps lock for uppercase characters?
+* Time from load to action:
+** When a user logs in, how long does it take them to get to the login button?
+
+Most inspective (background daemon, for individuals who want to build the best profile or corporate environments):
+
+* Camera feed:
+** Does facial recognition pass?
+** Is the audio noise floor unusual?
+
+* System activity:
+** Does the user have the background daemon running/installed?
+** Does the system have unusual processes running in the background?
+
+By building a profile of the user and how they interact with the system a constant background check is happening. While a 
+malicious actor might be able to spoof some factors such as IP, User-Agent, or security questions can they build a fully 
+accurate profile and replicate the users behaviour exactly?
+
+=== Using AI to anonymize the data
+
+with the user data 
