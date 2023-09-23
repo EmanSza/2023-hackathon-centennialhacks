@@ -1,10 +1,16 @@
 'use client';
 import CustomButton from '@/app/components/atoms/CustomButton/CustomButton';
 import FormikCustomInput from '@/app/components/atoms/FormikCustomInput/FormikCustomInput';
-import { ButtonProperties, errorMessages } from '@/app/libs/helpers';
+import { showToast } from '@/app/components/atoms/ShowToast/showToast';
+import {
+	ButtonProperties,
+	NotificationTypes,
+	errorMessages,
+} from '@/app/libs/helpers';
 import { Form, Formik, FormikProps } from 'formik';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import * as yup from 'yup';
 import yupPassword from 'yup-password';
@@ -12,6 +18,7 @@ yupPassword(yup); // extend yup
 
 const RegularSignIn = () => {
 	// const { login, isLoading } = useLoginMutation();
+	const [loading, setLoading] = useState(false);
 
 	const initialState = {
 		email: '',
@@ -39,7 +46,17 @@ const RegularSignIn = () => {
 	});
 
 	const signInUser = async (values: Values) => {
-		// await login(values);
+		
+		setLoading(true);
+
+		try {
+			await signIn('credentials', {
+				email: values.email,
+				password: values.password,
+			});
+		} catch (error) {
+			showToast('An error occurred', NotificationTypes.ERROR);
+		}
 	};
 
 	return (

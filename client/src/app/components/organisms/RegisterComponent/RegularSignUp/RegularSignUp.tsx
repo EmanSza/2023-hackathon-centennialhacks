@@ -2,11 +2,16 @@
 import CustomButton from '@/app/components/atoms/CustomButton/CustomButton';
 import FormikCustomInput from '@/app/components/atoms/FormikCustomInput/FormikCustomInput';
 import { showToast } from '@/app/components/atoms/ShowToast/showToast';
-import { ButtonProperties, errorMessages } from '@/app/libs/helpers';
+import fetchWrapper from '@/app/libs/fetchWrapper';
+import {
+	ButtonProperties,
+	NotificationTypes,
+	errorMessages,
+} from '@/app/libs/helpers';
 import { Form, Formik, FormikProps } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { useMutation } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 import * as yup from 'yup';
@@ -20,32 +25,26 @@ const RegularSignUp = () => {
 	// });
 
 	// const { login, isLoading: loader } = useLoginMutation();
+	const [loading, setLoading] = useState<boolean>(false);
 
 	const router = useRouter();
 
 	const initialState = {
-		firstName: '',
-		lastName: '',
+		username: '',
 		email: '',
 		password: '',
 		confirm_password: '',
 	};
 
 	interface Values {
-		firstName: string;
-		lastName: string;
+		username: string;
 		email: string;
 		password: string;
 		confirm_password: string;
 	}
 
 	const RegisterSchema = yup.object().shape({
-		firstName: yup
-			.string()
-			.min(2, 'Too Short!')
-			.max(50, 'Too Long!')
-			.required(errorMessages.required('First Name')),
-		lastName: yup
+		username: yup
 			.string()
 			.min(2, 'Too Short!')
 			.max(50, 'Too Long!')
@@ -68,7 +67,26 @@ const RegularSignUp = () => {
 			.oneOf([yup.ref('password'), ''], errorMessages.passwordMatch),
 	});
 
-	const registerUser = async (values: Values) => {};
+	const registerUser = async (values: Values) => {
+		console.log("ok")
+		setLoading(true);
+		try {
+			const res = await fetchWrapper.post(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/consumer/auth/register`,
+				{
+					email: values.email,
+					password: values.password,
+					username: values.username,
+				}
+			);
+			const responseJson = await res.json(); // Server response
+			console.log(responseJson);
+		} catch (error) {
+			console.log(error);
+			showToast('An error occurred', NotificationTypes.ERROR);
+		}
+		setLoading(false);
+	};
 
 	return (
 		<div>
@@ -99,18 +117,8 @@ const RegularSignUp = () => {
 										className='border border-bell-gray-200 rounded-[6px]'
 										container='tablet:px-6'
 										inputClassName='placeholder:text-14 placeholder:text-bell-ink-blue-500 border-black'
-										name='firstName'
-										placeholder='Enter Your First Name'
-										type='text'
-									/>
-								</div>
-								<div className='mb-4'>
-									<FormikCustomInput
-										className='border border-bell-gray-200 rounded-[6px]'
-										container='tablet:px-6'
-										inputClassName='placeholder:text-14 placeholder:text-bell-ink-blue-500 border-black'
-										name='lastName'
-										placeholder='Enter Your Last Name'
+										name='username'
+										placeholder='Enter Your User Name'
 										type='text'
 									/>
 								</div>
@@ -155,8 +163,8 @@ const RegularSignUp = () => {
 							<CustomButton
 								customClass='w-full'
 								handleClick={() => {}}
-								// isDisabled={isLoading || loader}
-								// isSubmitting={isLoading || loader}
+								isDisabled={loading}
+								isSubmitting={loading}
 								size={ButtonProperties.SIZES.big}
 								title='Create Account'
 								type='submit'
