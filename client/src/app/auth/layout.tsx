@@ -19,7 +19,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
 								alt=''
 								height={385}
 								priority
-								src='/images/astronaut.png'
+								src='/images/hacking1.jpeg'
 								width={339}
 							/>
 						</div>

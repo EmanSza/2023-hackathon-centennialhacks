@@ -84,8 +84,8 @@ const CustomButton = ({
 	const styleMap: { [key: string]: string } = {
 		primary: `text-white ${
 			isDisabled
-				? 'bg-bell-green-200'
-				: 'bg-bell-green-500 hover:bg-bell-green-800 '
+				? 'bg-blue-200'
+				: 'bg-bell-blue-500 hover:bg-bell-blue-800 '
 		}`,
 		secondary: '',
 		custom: `${customBtnClass}`,
