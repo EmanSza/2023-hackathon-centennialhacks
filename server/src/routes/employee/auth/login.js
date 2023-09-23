@@ -4,8 +4,8 @@ const passport = require('passport');
 
 
 router.post('/', passport.authenticate('local-employee-login', {
-    successRedirect: '/user',
-    failureRedirect: '/login',
+    successRedirect: '/employee/dashboard',
+    failureRedirect: '/employee/auth/login',
     failureFlash: true
 }))
 

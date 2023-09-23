@@ -40,16 +40,14 @@ function initalize(passport) {
         }, async (req, email, password, done) => {
             let username = req.body.username;
             try {
-                if (!password || !email || !req.body.username) return done(null, false, { message: 'Please Fill Out All Fields' })
-                if (password.length < 8 || !password.match(/[^A-Za-z0-9]+/g) || !password.match(/[0-9]+/g)) return done(null, false, { message: 'Password must be at least 8 characters long, contain at least one number, and contain at least one special character' }) 
-                if (req.body.username.length < 3 || req.body.username.length > 16) return done(null, false, { message: 'Username must be between 3 and 16 characters long' })
-                if (await consumerSchema.findOne({ 'local.username': req.body.username })) return done(null, false, { message: 'Username is Already Taken' })
-                if (await consumerSchema.findOne({ 'local.email': email })) return done(null, false, { message: 'Email is Already Taken' })
-                
-                const counter = await consumerSchema.findOne({ _id: "0" })
-                let newID = counter.count + 1;
+                if (!password || !email || !req.body.username) return done(null, false)
+                if (password.length < 8 || !password.match(/[^A-Za-z0-9]+/g) || !password.match(/[0-9]+/g)) return done(null, false) 
+                if (req.body.username.length < 3 || req.body.username.length > 16) return done(null, false)
+                if (await consumerSchema.findOne({ 'local.username': req.body.username })) return done(null, false)
+                if (await consumerSchema.findOne({ 'local.email': email })) return done(null, false)
+                console.log("Entered")
+        
                 let DBUser = await consumerSchema.create({
-                    _id: newID,
                     local: {
                         email: email,
                         username: username,
@@ -60,7 +58,7 @@ function initalize(passport) {
                 })
                 if (DBUser) return done(null, DBUser)
 
-                return done(null, false, { message: 'System Error, Please Retry.' })
+                return done(null, false)
             } catch (err) {
                 return done(err)
             }
