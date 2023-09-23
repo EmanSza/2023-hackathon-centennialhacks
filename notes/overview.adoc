@@ -1,0 +1,30 @@
+= Bell GeekFest Hackathon - Team Centennial Hacks
+Sept 23 - 24
+
+== Human Hueristics - Online security through user fingerprinting
+
+Everyday, users make thouands of requests across networks. Logins to vital services such as banking,
+e-commerce, and games can be a risk. Solutions such as two factor can help to mitigate some of the risks
+but no system is infallable. We propose using the power of AI to create profiles of users and their interactions 
+with these services. To ensure that the user behind the keyboard is who they claim to be we took inspiration from
+a program called "Cortex XDR" which uses AI to build a profile of processes and flag virus like behaviour.
+
+====
+
+One of the greatest issues with security is user fatigue: If a password is too long, users will write them down. If frequent 
+two factor verifactions are required checking the check box become unconscious routine.
+
+====
+
+For ethical concerns, all levels of the system are opt-in and solutions range from minimally intrusive to
+full pectrum analysis of a users behaviour on a system. When a user attempts to login to a service the system assigns 
+a confidence score. If the score is too low then additional verification or restriction of access can occur.
+
+
+Minimally intrusive (full server side):
+
+* Time of login: If a user typcially logs in between 5 - 7 on the weekends at attempt to login on saturday at 3am should raise concerns
+* User-Agent String: If the user always logs in from their desktop PC, a user trying to login from an iphone would lower the confidence score
+* Location: Is the user logging in from their usual location?
+
+More 

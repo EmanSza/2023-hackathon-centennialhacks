@@ -1,0 +1,5 @@
+./server/node_modules
+./server/.env
+
+/server/node_modules
+server/node_modules/@mongodb-js/saslprep/dist/code-points-data.d.ts
