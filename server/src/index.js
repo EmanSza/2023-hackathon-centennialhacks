@@ -62,12 +62,6 @@ app.use('/consumer/auth/login', require('./routes/consumer/auth/login'));
 app.use('/consumer/auth/register', require('./routes/consumer/auth/register'));
 app.use('/consumer/user', require('./routes/consumer/user'))
 
-// Employee Routes
-app.use('/employee', require('./routes/employee/index'));
-app.use('/employee/auth/login', require('./routes/employee/auth/login'));
-app.use('/employee/auth/register', require('./routes/employee/auth/register'));
-
-
 app.listen(4000, () => {
   console.log("Server has started!");
 });
