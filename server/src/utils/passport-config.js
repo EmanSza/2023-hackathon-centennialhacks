@@ -17,7 +17,6 @@ function initalize(passport) {
                 let DBuser = await consumerSchema.findOne({ "local.email": email })
                 if (!DBuser) return done(null, false, { message: '404 User not found' })
 
-                if (!DBuser.verified) return done(null, false, { message: 'Please Verify Your Email' })
                
                 bcrypt.compare(password, DBuser.local.password, function(err, result) {
                     if (err) throw err;
