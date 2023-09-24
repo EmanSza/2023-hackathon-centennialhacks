@@ -27,7 +27,9 @@ db.connect()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
-app.use(cors());
+
+app.use(cors())
+
 
 app.use(cookieParser(process.env.SESSION_SECRET));
 
@@ -58,6 +60,7 @@ app.use('/', require('./routes/index'));
 app.use('/consumer', require('./routes/consumer/index'));
 app.use('/consumer/auth/login', require('./routes/consumer/auth/login'));
 app.use('/consumer/auth/register', require('./routes/consumer/auth/register'));
+app.use('/consumer/user', require('./routes/consumer/user'))
 
 // Employee Routes
 app.use('/employee', require('./routes/employee/index'));
