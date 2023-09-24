@@ -61,6 +61,7 @@ app.use('/consumer', require('./routes/consumer/index'));
 app.use('/consumer/auth/login', require('./routes/consumer/auth/login'));
 app.use('/consumer/auth/register', require('./routes/consumer/auth/register'));
 app.use('/consumer/user', require('./routes/consumer/user'))
+app.use('/consumer/dashboard', require('./routes/consumer/dashboard'))
 
 app.listen(4000, () => {
   console.log("Server has started!");
