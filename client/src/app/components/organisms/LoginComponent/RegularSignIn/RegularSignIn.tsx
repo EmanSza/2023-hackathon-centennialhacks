@@ -51,14 +51,6 @@ const RegularSignIn = () => {
 	const signInUser = async (values: Values) => {
 		setLoading(true);
 		try {
-			// const res = await fetchWrapper.post(
-			// 	`${process.env.NEXT_PUBLIC_BACKEND_URL}/consumer/auth/login`,
-			// 	{
-			// 		email: values.email,
-			// 		password: values.password,
-			// 	}
-			// );
-
 			const requestOptions = {
 				method: 'POST',
 				headers: {
@@ -80,8 +72,9 @@ const RegularSignIn = () => {
 					'Login successful...You will be redirecetd shortly',
 					NotificationTypes.SUCCESS
 				);
+				localStorage.setItem("username", responseJson.user.username)
 				setTimeout(() => {
-					router.push('/home');
+					router.push('/interactive-demo');
 				}, 1500);
 			} else {
 				showToast('An error occurred', NotificationTypes.ERROR);

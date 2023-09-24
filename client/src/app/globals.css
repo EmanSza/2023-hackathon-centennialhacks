@@ -29,3 +29,20 @@ body {
   background: #f5f7ff;
   color: #000;
 }
+
+  textarea {
+            resize: none;
+        }
+        .mainGrid {
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+
+        .gridLeft {
+            columns: 1 / 2;
+        }
+
+        .gridRight {
+            columns: 2 / 3;
+            overflow-wrap: break-word;
+        }
