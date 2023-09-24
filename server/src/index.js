@@ -27,6 +27,11 @@ db.connect()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
+app.use(cors({
+  origin: "http:localhost:3000",
+  methods: ['GET', 'POST'],
+  credentials: true
+}))
 
 
 app.use(cookieParser(process.env.SESSION_SECRET));

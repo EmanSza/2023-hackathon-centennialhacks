@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import './globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import type { Metadata } from 'next';
@@ -19,10 +19,10 @@ export default function RootLayout({
 			<body className={inter.className}>
 				<main>
 					<ReactQueryProviders>
-						<SessionProvider>
-							<NextTopLoader />
-							{children}
-						</SessionProvider>
+						{/* <SessionProvider> */}
+						<NextTopLoader />
+						{children}
+						{/* </SessionProvider> */}
 					</ReactQueryProviders>
 				</main>
 			</body>
