@@ -68,7 +68,6 @@ const RegularSignUp = () => {
 	});
 
 	const registerUser = async (values: Values) => {
-		console.log("ok")
 		setLoading(true);
 		try {
 			const res = await fetchWrapper.post(
@@ -80,9 +79,14 @@ const RegularSignUp = () => {
 				}
 			);
 			const responseJson = await res.json(); // Server response
-			console.log(responseJson);
+			if (responseJson.success) {
+				showToast('Registration successful', NotificationTypes.SUCCESS);
+				router.push('/auth/login');
+			} else {
+				showToast('An error occurred', NotificationTypes.ERROR);
+			}
+			setLoading(false);
 		} catch (error) {
-			console.log(error);
 			showToast('An error occurred', NotificationTypes.ERROR);
 		}
 		setLoading(false);

@@ -2,6 +2,7 @@
 import CustomButton from '@/app/components/atoms/CustomButton/CustomButton';
 import FormikCustomInput from '@/app/components/atoms/FormikCustomInput/FormikCustomInput';
 import { showToast } from '@/app/components/atoms/ShowToast/showToast';
+import fetchWrapper from '@/app/libs/fetchWrapper';
 import {
 	ButtonProperties,
 	NotificationTypes,
@@ -10,6 +11,7 @@ import {
 import { Form, Formik, FormikProps } from 'formik';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import * as yup from 'yup';
@@ -19,6 +21,7 @@ yupPassword(yup); // extend yup
 const RegularSignIn = () => {
 	// const { login, isLoading } = useLoginMutation();
 	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 	const initialState = {
 		email: '',
@@ -46,17 +49,49 @@ const RegularSignIn = () => {
 	});
 
 	const signInUser = async (values: Values) => {
-		
 		setLoading(true);
-
 		try {
-			await signIn('credentials', {
-				email: values.email,
-				password: values.password,
-			});
+			// const res = await fetchWrapper.post(
+			// 	`${process.env.NEXT_PUBLIC_BACKEND_URL}/consumer/auth/login`,
+			// 	{
+			// 		email: values.email,
+			// 		password: values.password,
+			// 	}
+			// );
+
+			const requestOptions = {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					email: values.email,
+					password: values.password,
+				}),
+			};
+
+			const res = await fetch(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/consumer/auth/login`,
+				requestOptions
+			);
+			const responseJson = await res.json(); // Server response
+			if (responseJson.success) {
+				showToast(
+					'Login successful...You will be redirecetd shortly',
+					NotificationTypes.SUCCESS
+				);
+				setTimeout(() => {
+					router.push('/home');
+				}, 1500);
+			} else {
+				showToast('An error occurred', NotificationTypes.ERROR);
+			}
+			setLoading(false);
 		} catch (error) {
 			showToast('An error occurred', NotificationTypes.ERROR);
 		}
+		setLoading(false);
+		``;
 	};
 
 	return (
