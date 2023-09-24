@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction Demo - Centennial Hacks</title>
+</head>
+<body>
+    <script src="./interactive.js" defer></script>
+    <style>
+        textarea {
+            resize: none;
+        }
+        .mainGrid {
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+
+        .gridLeft {
+            columns: 1 / 2;
+        }
+
+        .gridRight {
+            columns: 2 / 3;
+            overflow-wrap: break-word;
+        }
+
+    </style>
+    <div class="mainGrid">
+        <div class="gridLeft">
+            <textarea rows="10" cols="40" placeholder="type here"></textarea>
+            <p>Please type: "We do these things, not because they are easy... but because we thought they would be easy"</p>
+        </div>
+        <div class="gridRight">
+            <p>Average length of key press:<span id="avgKeyPress"></span></p>
+            <p>Press times:<span id="deltaArray"></span></p>
+        </div>
+    </div>
+    
+</body>
+</html>
